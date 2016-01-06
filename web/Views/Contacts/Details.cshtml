@@ -1,0 +1,103 @@
+﻿@model contact_management.web.Models.Contact
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Contact</h4>
+    <hr />
+  <dl class="dl-horizontal">
+    <dt>
+      @Html.DisplayNameFor(model => model.FirstName)
+    </dt>
+
+    <dd>
+      @Html.DisplayFor(model => model.FirstName)
+    </dd>
+
+    <dt>
+      @Html.DisplayNameFor(model => model.LastName)
+    </dt>
+
+    <dd>
+      @Html.DisplayFor(model => model.LastName)
+    </dd>
+
+    <dt>
+      @Html.DisplayNameFor(model => model.Company)
+    </dt>
+
+    <dd>
+      @Html.DisplayFor(model => model.Company)
+    </dd>
+
+    <dt>
+      @Html.DisplayNameFor(model => model.Title)
+    </dt>
+
+    <dd>
+      @Html.DisplayFor(model => model.Title)
+    </dd>
+
+    <dt>
+      @Html.DisplayNameFor(model => model.EmailAddress)
+    </dt>
+
+    <dd>
+      @Html.DisplayFor(model => model.EmailAddress)
+    </dd>
+
+    <dt>
+      @Html.DisplayNameFor(model => model.WhenCreated)
+    </dt>
+
+    <dd>
+      @Html.DisplayFor(model => model.WhenCreated)
+    </dd>
+
+    <dt>
+      @Html.DisplayNameFor(model => model.WhenModified)
+    </dt>
+
+    <dd>
+      @Html.DisplayFor(model => model.WhenModified)
+    </dd>
+
+  </dl>
+
+  <hr />
+
+  <dl class="dl-horizontal">
+    <dt>Phone Numbers</dt><dd>&nbsp;</dd>
+    @foreach (var number in Model.PhoneNumbers)
+    {
+      <dt>@number.Description</dt><dd>@number.Number</dd>
+    }
+  </dl>
+
+  <hr />
+
+  <dl class="dl-horizontal">
+    <dt>Addresses</dt>
+    <dd>&nbsp;</dd>
+  </dl>
+
+  <hr />
+
+  <dl class="dl-horizontal">
+    <dt>Notes</dt>
+    <dd>&nbsp;</dd>
+    @foreach (var note in Model.Notes.OrderByDescending(n => n.WhenCreated))
+    {
+      <dt>@note.WhenCreated</dt>
+      <dd>@note.Content</dd>
+    }
+  </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
