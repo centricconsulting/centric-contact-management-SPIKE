@@ -41,9 +41,28 @@ namespace contact_management.web.Controllers
 
       var knownContactIds = user.KnownContacts.Select(c => c.Id);
 
-      if (knownContactIds.Contains(id)) user.KnownContacts.Remove(contact);
-      else user.KnownContacts.Add(contact);
+      string knownDescriptor = "";
+      if (knownContactIds.Contains(id))
+      {
+        user.KnownContacts.Remove(contact);
+        knownDescriptor = "UNKNOWN";
+      }
+      else
+      {
+        user.KnownContacts.Add(contact);
+        knownDescriptor = "KNOWN";
+      }
 
+      contact.Notes = new List<Note>
+      {
+        new Note
+        {
+          Id = Guid.NewGuid(),
+          Content = $"***** Contact Marked {knownDescriptor} by {User.Identity.GetUserName()} *****",
+          UserId = User.Identity.GetUserId(),
+          WhenCreated = DateTime.UtcNow
+        }
+      };
       await Db.SaveChangesAsync();
 
       return CreatedAtRoute("DefaultApi", new { controller = "Contact", id = contact.Id }, contact);
