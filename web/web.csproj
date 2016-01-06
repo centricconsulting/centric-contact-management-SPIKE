@@ -179,6 +179,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ApplicationControllerBase.cs" />
+    <Compile Include="Controllers\KnownContactsController.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -213,11 +214,24 @@
     <Compile Include="Migrations\201601061619538_addedRequiredFieldsToContact.Designer.cs">
       <DependentUpon>201601061619538_addedRequiredFieldsToContact.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201601061816132_associateUsersAndContacts.cs" />
+    <Compile Include="Migrations\201601061816132_associateUsersAndContacts.Designer.cs">
+      <DependentUpon>201601061816132_associateUsersAndContacts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601062029387_huh.cs" />
+    <Compile Include="Migrations\201601062029387_huh.Designer.cs">
+      <DependentUpon>201601062029387_huh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601062036486_huh2.cs" />
+    <Compile Include="Migrations\201601062036486_huh2.Designer.cs">
+      <DependentUpon>201601062036486_huh2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Contact.cs" />
+    <Compile Include="Models\ContactListViewModel.cs" />
     <Compile Include="Models\EntityBase.cs" />
     <Compile Include="Models\EntityBaseWithContact.cs" />
     <Compile Include="Models\ICanBePrimary.cs" />
@@ -323,6 +337,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201601061619538_addedRequiredFieldsToContact.resx">
       <DependentUpon>201601061619538_addedRequiredFieldsToContact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601061816132_associateUsersAndContacts.resx">
+      <DependentUpon>201601061816132_associateUsersAndContacts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601062029387_huh.resx">
+      <DependentUpon>201601062029387_huh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601062036486_huh2.resx">
+      <DependentUpon>201601062036486_huh2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

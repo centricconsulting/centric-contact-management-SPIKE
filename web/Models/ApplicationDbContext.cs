@@ -13,9 +13,21 @@ namespace contact_management.web.Models
 
     public ApplicationDbContext() : base("CentricContactSpikeConnectionString", throwIfV1Schema: false) { }
 
-    public static ApplicationDbContext Create()
+    public static ApplicationDbContext Create() { return new ApplicationDbContext(); }
+
+    protected override void OnModelCreating(DbModelBuilder modelBuilder)
     {
-      return new ApplicationDbContext();
+      modelBuilder.Entity<Contact>()
+                  .HasMany<ApplicationUser>(s => s.KnownUsers)
+                  .WithMany(c => c.KnownContacts)
+                  .Map(cs =>
+                  {
+                    cs.MapLeftKey("ContactId");
+                    cs.MapRightKey("ApplicationUserId");
+                    cs.ToTable("Contacts_ApplicationUsers");
+                  });
+
+      base.OnModelCreating(modelBuilder);
     }
   }
 }

@@ -4,21 +4,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace contact_management.web.Models
 {
-  public class ContactListViewModel : List<Contact>
-  {
-
-    public ContactListViewModel()
-    {
-    }
-
-    public ContactListViewModel(IReadOnlyCollection<Contact> collection) : base(collection)
-    {
-    }
-
-    public string ForCompany { get; set; }
-  }
-
-
   public class Contact : EntityBase<Guid>
   {
     [Required] public string FirstName { get; set; }
@@ -30,6 +15,8 @@ namespace contact_management.web.Models
     public virtual List<PhoneNumber> PhoneNumbers { get; set; }
     public virtual List<Address> Addresses { get; set; }
     public virtual List<Note> Notes { get; set; }
+
+    public virtual List<ApplicationUser> KnownUsers { get; set; }
 
     public Contact ApplyTo(Contact contact)
     {

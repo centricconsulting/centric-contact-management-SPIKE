@@ -22,6 +22,7 @@ namespace contact_management.web.Controllers
         : new ContactListViewModel(await Db.Contacts.Where(c => c.Company == company).ToListAsync());
 
       model.ForCompany = company;
+      model.KnownContactIds = await GetUserKnownContacts();
 
       return View(model);
     }
