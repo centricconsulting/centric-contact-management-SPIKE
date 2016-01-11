@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Data.Entity;
+using System.Threading.Tasks;
 using System.Web.Mvc;
+
 
 namespace contact_management.web.Controllers
 {
@@ -12,6 +11,16 @@ namespace contact_management.web.Controllers
     public ActionResult Index()
     {
       return View();
+    }
+  }
+
+  public class UserController : ApplicationControllerBase
+  {
+    public async Task<ActionResult> Index() {
+
+      var model = await Db.Users.ToListAsync();
+
+      return View(model);
     }
   }
 }
