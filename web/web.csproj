@@ -178,6 +178,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ApplicationControllerBase.cs" />
     <Compile Include="Controllers\KnownContactsController.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
@@ -304,7 +305,7 @@
     <Content Include="Views\Contacts\Details.cshtml" />
     <Content Include="Views\Contacts\Edit.cshtml" />
     <Content Include="Views\Contacts\Index.cshtml" />
-    <None Include="Views\User\Index.cshtml" />
+    <Content Include="Views\Admin\UserList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
